@@ -32,6 +32,7 @@ const quizData = [
   
   const questionElement = document.getElementById("question");
   const optionsElement = document.getElementById("options");
+  var restartButton = "";
 
   
   let currentQuestion = 0;
@@ -53,19 +54,32 @@ const quizData = [
   function selectAnswer(e) {
     const selectedButton = e.target;
     const answer = quizData[currentQuestion].answer;
+    
   
     if (selectedButton.innerText === answer) {
       score++;
 
     }
     currentQuestion++;
-  
+    console.log("Score:", score, "Quiz Length:", quizData.length);  // Debug values
     if (currentQuestion < quizData.length) {
       showQuestion();
     } else {
+      
+      if (score == quizData.length) {
+         restartButton = "wow! i hope you didn't cheat..";
+
+      } else {
+        restartButton = "you should have cheated";
+
+        }
+
       showResult();
     }
   }
+
+
+
 
 
   
@@ -73,7 +87,12 @@ const quizData = [
     quiz.innerHTML = `
       <h1>Quiz Completed!</h1>
       <p>Your score: ${score}/${quizData.length}</p>
-      <button onClick="refreshPage()">restart</button>
+
+
+
+
+      
+      <button onClick="refreshPage()">${restartButton}</button>
 
     `;
   }
