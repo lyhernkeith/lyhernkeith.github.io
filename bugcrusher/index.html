@@ -86,15 +86,11 @@ const quizData = [
   
   function showResult() {
     quiz.innerHTML = `
+    <div class="centre">
       <h1>Quiz Completed!</h1>
       <p>Your score: ${score}/${quizData.length}</p>
-
-
-
-
-      
       <button onClick="refreshPage()">${restartButton}</button>
-
+    </div>
     `;
   }
   
