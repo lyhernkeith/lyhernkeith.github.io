@@ -1,0 +1,45 @@
+#sdg-chart path {
+  cursor: pointer;
+  transition: transform 0.3s, fill-opacity 0.3s;
+}
+
+#sdg-chart path:hover {
+  fill-opacity: 0.7; /* Increase contrast on hover */
+  transform: scale(1.1); /* Scales up from the center */
+}
+
+#sdg-chart-container {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  background-color: antiquewhite;
+}
+
+#sdg-info {
+  text-align: center;
+  width: 45%;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sdg-info h2 {
+  font-size: 44px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+#sdg-info p {
+  font-size: 28px;
+  color: #333;
+  margin: 10px 0;
+}
+
+#sdg-chart {
+  width: 50%;
+}
