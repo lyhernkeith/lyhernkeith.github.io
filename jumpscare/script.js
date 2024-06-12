@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const blackScreen = document.getElementById("black-screen");
     const blackScreenText = document.getElementById("black-screen-text");
 
-    const typewriterText = "Road safety is no accident.";
+    const typewriterText = "road safety is no accident.";
 
     // Typewriter effect function
     function typeWriter(text, i, callback) {
@@ -19,11 +19,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Reset the animation state
+    function resetAnimation() {
+        carImage.classList.remove("grow");
+        blackScreen.classList.remove("fade-out");
+        blackScreenText.innerHTML = "";
+        animationContainer.style.display = "none";
+        blackScreen.style.display = "none";
+    }
+
     // Listen for the space bar key press
     document.addEventListener("keydown", (event) => {
         if (event.code === "Space") {
             event.preventDefault();
             console.log("Space bar pressed, starting animation");
+            document.body.style.backgroundColor = "transparent";
+            resetAnimation();
             animationContainer.style.display = "flex"; // Show the animation container
             setTimeout(() => {
                 carImage.classList.add("grow");
@@ -42,10 +53,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // Fade out the black screen after the typewriter effect is complete
             blackScreen.classList.add("fade-out");
 
-            // Refresh the page after the fade-out transition
+            // Keep the website transparent
             blackScreen.addEventListener("transitionend", () => {
-                console.log("Black screen fade-out ended, refreshing page");
-                location.reload();
+                console.log("Black screen fade-out ended");
+                document.body.style.backgroundColor = "transparent";
+                resetAnimation();
             });
         });
     });
