@@ -35,8 +35,8 @@ function drawSDGSegments(sdgData) {
         path.setAttribute("stroke", "white");
         path.setAttribute("stroke-width", "0.1");
         path.setAttribute("data-index", index);
-        path.addEventListener('mouseover', () => showSDGInfo(index));
-        path.addEventListener('mouseout', () => resetSDGInfo());
+        path.addEventListener('mouseover', (event) => showSDGInfo(event, index));
+        path.addEventListener('mouseout', () => hideTooltip());
         path.addEventListener('click', () => selectSDG(index));
         chart.appendChild(path);
         startAngle = endAngle;
@@ -63,24 +63,29 @@ function describeArc(x, y, radius, startAngle, endAngle) {
 }
 
 function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-  const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
-  return {
-    x: centerX + (radius * Math.cos(angleInRadians)),
-    y: centerY + (radius * Math.sin(angleInRadians))
-  };
+    const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+    return {
+        x: centerX + (radius * Math.cos(angleInRadians)),
+        y: centerY + (radius * Math.sin(angleInRadians))
+    };
 }
 
-function showSDGInfo(index) {
-    if (selectedSDGIndex !== null) return; // Do not update if a segment is already selected
+function showSDGInfo(event, index) {
     const sdgInfo = sdgData[index];
     document.getElementById('sdg-name').textContent = sdgInfo.name;
     document.getElementById('sdg-description').textContent = sdgInfo.description;
+    document.getElementById('sdg-image').src = `sdg${sdgInfo.id}.png`; // Dynamic image path
+    document.getElementById('sdg-image').style.display = 'block';
+    const tooltip = document.getElementById('tooltip');
+    tooltip.style.display = 'block';
+    tooltip.style.left = event.pageX + 10 + 'px';
+    tooltip.style.top = event.pageY + 10 + 'px';
+    tooltip.textContent = `SDG ${sdgInfo.id}`;
 }
 
-function resetSDGInfo() {
-    if (selectedSDGIndex !== null) return; // Do not reset if a segment is already selected
-    document.getElementById('sdg-name').textContent = 'Select an SDG Goal';
-    document.getElementById('sdg-description').textContent = 'Hover over or click on an SDG goal to see more information.';
+function hideTooltip() {
+    const tooltip = document.getElementById('tooltip');
+    tooltip.style.display = 'none';
 }
 
 function selectSDG(index) {
@@ -88,6 +93,8 @@ function selectSDG(index) {
     const sdgInfo = sdgData[index];
     document.getElementById('sdg-name').textContent = sdgInfo.name;
     document.getElementById('sdg-description').textContent = sdgInfo.description;
+    document.getElementById('sdg-image').src = `sdg${sdgInfo.id}.png`; // Dynamic image path
+    document.getElementById('sdg-image').style.display = 'block';
 }
 
 // Initialize the chart
