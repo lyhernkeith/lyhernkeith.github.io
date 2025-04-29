@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+  background-color: #FFCDB2;
   padding: 40px;
 }
 
@@ -25,7 +25,7 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  background-color: white;
+  background-color: #6D6875;
 }
 
 .front,
@@ -55,21 +55,21 @@ body {
 }
 
 .textbox {
-  background-color: beige;
+  background-color: #E5989B;
   padding: 10px 20px;
   text-align: center;
   height: 100%;
 }
 
 .textbox h4 {
-  color: #00cccc;
+  color: #FFCDB2;
   font-weight: 400;
   font-size: 18px;
   margin: 0;
 }
 
 .back {
-  background-color: #e9f7f6;
+  background-color: #B5838D;
   transform: translateY(100%);
   z-index: 1;
   padding: 20px;
@@ -81,7 +81,7 @@ body {
 
 .back p {
   margin: 0;
-  color: #333;
+  color: #FFB4A2;
   line-height: 1.4;
   font-size: 16px;
 }
