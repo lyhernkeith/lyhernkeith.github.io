@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #FFCDB2;
+  background-color: beige;
   padding: 40px;
 }
 
@@ -55,7 +55,7 @@ body {
 }
 
 .textbox {
-  background-color: #FFCDB2;
+  background-color: #FFB4A2;
   padding: 10px 20px;
   text-align: center;
   height: 100%;
@@ -69,7 +69,7 @@ body {
 }
 
 .back {
-  background-color: #FFCDB2;
+  background-color: #E5989B;
   transform: translateY(100%);
   z-index: 1;
   padding: 20px;
@@ -89,18 +89,18 @@ body {
 .link {
   margin-top: 15px;
   display: inline-block;
-  color: #B5838D;
+  color: #FFCDB2;
   text-decoration: none;
   font-weight: bold;
-  border: 1px solid #B5838D;
+  border: 1px solid #6D6875;
   padding: 6px 12px;
   border-radius: 10px;
   transition: background-color 0.3s;
 }
 
 .link:hover {
-  background-color: #B5838D;
-  color: #FFCDB2;
+  background-color: #FFCDB2;
+  color: #6D6875;
 }
 
 .news:hover .front {
